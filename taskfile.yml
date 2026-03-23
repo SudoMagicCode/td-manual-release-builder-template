@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# 
+
+version: '3'
+
+vars:
+  RELEASE: artifacts/package
+  SCRIPTS: scripts
+
+tasks:
+  clean:
+    desc: Cleans up working files and any release files
+    deps: [clean-release]
+    silent: true
+
+  clean-release:
+    internal: true
+    desc: Cleans up artifacts dir
+    cmds:
+      - rm -rf {{.RELEASE}}
+      - mkdir -p {{.RELEASE}}
+    silent: true
+
+  create-package-release:
+    desc: Runs Python test script
+    env:
+      SM_RELEASE_DIR: "{{.RELEASE}}"
+      SM_RELEASE_TYPE: "packageZip"
+    cmds:
+      - python {{.SCRIPTS}}/create-release.py
+    silent: true
+
+  create-bundle-release:
+    desc: Runs Python test script
+    env:
+      SM_RELEASE_DIR: "{{.RELEASE}}"
+      SM_RELEASE_TYPE: "toxFiles"
+    cmds:
+      - python {{.SCRIPTS}}/create-release.py
+    silent: true
+
+  test-env-vars:
+    env:
+      SM_RELEASE_DIR: "{{.RELEASE}}"
+      SM_RELEASE_TYPE: "zip"  # release type can be 'packageZip' or 'toxFiles'
+      SM_IS_TEST: "TRUE"
+    cmds:
+      - python {{.SCRIPTS}}/create-release.py
