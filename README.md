@@ -1,17 +1,37 @@
-# td-cli-release-testing
+# TouchDesigner Public Component Building
+
+This template repository is intended for creatives and developers who are looking for a simple and repeatable way to share components they build in [TouchDesigner](https://derivative.ca/) with others. At [SudoMagic](https://www.sudomagic.com/) we use a [CI/CD](https://docs.github.com/en/actions/get-started/continuous-integration) pipeline built around [self hosted github runners](https://docs.github.com/en/actions/concepts/runners/self-hosted-runners) for this process, but it's not always easy to maintain this kind of infrastructure. This repo is both an example for how you can get started, and contains a number of convenience scripts and tools to make the process of creating sharable, versionable, and repeatable between your repos.
+
+This process is built on the assumption that you're already using github to host some of your work. If you haven't started yet, that's okay - you can use this repo as a launching point for creating your own sharable TOX files that are easy to track and version as you make updates.
 
 ## Dependencies
 
 * [Task](https://taskfile.dev/)
 * [Github CLI](https://cli.github.com/)
-* Python
+* [Python 3.14](https://www.python.org/downloads/release/python-3143/)
 
 ## Getting Started
 
-Install all dependencies
+### Create a Github Account
 
-## Tasks
+This template assumes that you'll be using Github as your platform for both managing your version history and for creating [releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases). If you don't already have a github account it's important to start by creating an account that you can use.
 
-`task create-package-release`
+### Install Dependencies
 
-`task create-bundle-release`
+The automation in this repo uses all of the dependencies outlined above. Before creating a release it's important that you first install all of the tools listed above.
+
+### Using the Terminal
+
+The processes for creating a release uses the terminal - if you haven't spent much time using the terminal before you might start by going though an [interactive tutorial here](https://www.terminaltutor.com/). You'll only need to use a few commands to get around, but it's worth taking some time to get familiar with the terminal a little before you dive into creating your first release.
+
+#### Tasks
+
+```bash
+task release-package
+```
+
+```bash
+task release-bundle
+```
+
+### Typical Workflow

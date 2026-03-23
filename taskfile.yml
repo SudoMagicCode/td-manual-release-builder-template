@@ -21,8 +21,8 @@ tasks:
       - mkdir -p {{.RELEASE}}
     silent: true
 
-  create-package-release:
-    desc: Runs Python test script
+  release-package:
+    desc: Creates a release that packages all contents of artifacts/package into a single zip file
     env:
       SM_RELEASE_DIR: "{{.RELEASE}}"
       SM_RELEASE_TYPE: "packageZip"
@@ -30,8 +30,8 @@ tasks:
       - python {{.SCRIPTS}}/create-release.py
     silent: true
 
-  create-bundle-release:
-    desc: Runs Python test script
+  release-bundle:
+    desc: Creates a release which contains many .tox files
     env:
       SM_RELEASE_DIR: "{{.RELEASE}}"
       SM_RELEASE_TYPE: "toxFiles"
