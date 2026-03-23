@@ -4,7 +4,7 @@ github releases for TouchDesigner components.
 """
 
 __author__ = "SudoMagic"
-__copyright__ = "Copyright 2026, Project Name"
+__copyright__ = "Copyright 2026, SudoMagic"
 __credits__ = ["Matthew Ragan", "Gemini"]
 __license__ = "MIT"
 __version__ = "1.0.1"
